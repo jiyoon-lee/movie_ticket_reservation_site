@@ -1,4 +1,4 @@
-import Login from './login.js'
+import Login from '../modals/login.js'
 class Header {
   constructor () {
   }
@@ -18,15 +18,14 @@ class Header {
     $header.appendChild(modalSwitch)
 
     window.addEventListener('click', (e) => {
-      e.preventDefault()
       if (e.target.className === 'modal-switch') {
         const modal = document.querySelector('.modal')
         modal.style.display = 'flex'
       }
     })
 
-    const login = new Login()
-    $header.appendChild(login.render())
+    const login = new Login($header)
+    login.render()
 
     const $nav = document.createElement('nav')
     $nav.classList.add('nav')
